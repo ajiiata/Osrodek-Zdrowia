@@ -15,7 +15,43 @@ public class Adres {
         this.kodPocztowy = kodPocztowy;
     }
 
+    public String getUlica() {
+        return ulica;
+    }
 
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
 
+    public int getNrDomu() {
+        return nrDomu;
+    }
 
+    public void setNrDomu(int nrDomu) {
+        this.nrDomu = nrDomu;
+    }
+
+    public Optional getNrMieszkania() {
+        return nrMieszkania;
+    }
+
+    public void setNrMieszkania(Optional nrMieszkania) {
+        this.nrMieszkania = nrMieszkania;
+    }
+
+    public String getMiejscowosc() {
+        return miejscowosc;
+    }
+
+    public void setMiejscowosc(String miejscowosc) {
+        this.miejscowosc = miejscowosc;
+    }
+
+    public String getKodPocztowy() {
+        return kodPocztowy;
+    }
+
+    public void setKodPocztowy(String kodPocztowy) {
+        this.kodPocztowy = kodPocztowy;
+    }
 }
