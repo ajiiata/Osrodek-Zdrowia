@@ -18,6 +18,51 @@ public class Pacjent {
         this.nrTelefonu = nrTelefonu;
         this.narodowosc = narodowosc;
         this.miejsceUrodzenia = miejsceUrodzenia;
-
     }
+
+    public int getIdPacjenta() {
+        return this.idPacjenta;
+    }
+
+    public String getImiePacjenta() {
+        return this.imiePacjenta;
+    }
+
+    public void setImiePacjenta(String imiePacjenta) {
+        this.imiePacjenta = imiePacjenta;
+    }
+
+    public String getNazwiskoPacjenta() {
+        return this.nazwiskoPacjenta;
+    }
+
+    public void setNazwiskoPacjenta(String nazwiskoPacjenta) {
+        this.nazwiskoPacjenta = nazwiskoPacjenta;
+    }
+
+    public long getPesel() {
+        return this.pesel;
+    }
+
+    public long getNrTelefonu() {
+        return this.nrTelefonu;
+    }
+
+    public void setNrTelefonu(long nrTelefonu) {
+        this.nrTelefonu = nrTelefonu;
+    }
+
+    public String getNarodowosc() {
+        return this.narodowosc;
+    }
+
+    public void setNarodowosc(String narodowosc) {
+        this.narodowosc = narodowosc;
+    }
+
+    public String getMiejsceUrodzenia() {
+        return this.miejsceUrodzenia;
+    }
+
+
 }
