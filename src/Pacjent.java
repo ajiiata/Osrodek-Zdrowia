@@ -1,11 +1,11 @@
 public class Pacjent {
-    private int idPacjenta;
+    private final int idPacjenta;
     private String imiePacjenta;
     private String nazwiskoPacjenta;
-    private long pesel;
+    private final long pesel;
     private long nrTelefonu;
     private String narodowosc;
-    private String miejsceUrodzenia;
+    private final String miejsceUrodzenia;
     //adres będzie klasą, bo jest dość złożony, więc lepiej tak
 
     public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, long pesel, long nrTelefonu,
