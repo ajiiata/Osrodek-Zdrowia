@@ -12,19 +12,19 @@ public abstract class Czlowiek {
     }
 
     public String getImie() {
-        return imie;
+        return this.imie;
     }
 
     public String getNazwisko() {
-        return nazwisko;
+        return this.nazwisko;
     }
 
     public long getPesel() {
-        return pesel;
+        return this.pesel;
     }
 
     public long getNrTelefonu() {
-        return nrTelefonu;
+        return this.nrTelefonu;
     }
 
     public void setImie(String imie) {
