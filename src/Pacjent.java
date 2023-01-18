@@ -2,7 +2,8 @@ public class Pacjent extends Czlowiek {
     private final int idPacjenta;
     private String narodowosc;
     private final String miejsceUrodzenia;
-    //adres będzie klasą, bo jest dość złożony, więc lepiej tak
+
+    private String adresZamieszkania;
 
     public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, long pesel, long nrTelefonu,
                    String narodowosc, String miejsceUrodzenia) {
@@ -29,5 +30,11 @@ public class Pacjent extends Czlowiek {
         return this.miejsceUrodzenia;
     }
 
+    public String getAdresZamieszkania() {
+        return this.adresZamieszkania;
+    }
 
+    public void setAdresZamieszkania(String adresZamieszkania) {
+        this.adresZamieszkania = adresZamieszkania;
+    }
 }
