@@ -8,8 +8,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class RepozytoriumPacjentow {
 
@@ -41,8 +40,32 @@ public class RepozytoriumPacjentow {
         }
     }
 
-    public Pacjent getPacjentById(int id){
-        return this.pacjenci.get(id);
+    private void wyswietlPacjenta(Pacjent pacjent, String pracownik){
+        if(Objects.equals(pracownik, "pielęgniarka")){
+            String format = "| %-4d | %-14s | %-14s |%n";
+            System.out.printf(format, pacjent.getIdPacjenta(), pacjent.getImie(), pacjent.getNazwisko(), pacjent.getPesel(), pacjent.getNarodowosc(), pacjent.);
+        }
+
     }
+
+    public void wyszukajPoImieniuINazwisku(String imie, String nazwisko, String pracownik){
+        if (Objects.equals(pracownik, "pielęgniarka")) {
+            String format = "| %-4s | %-14s | %-14s |%n";
+            System.out.printf("+------+----------------+----------------+%n");
+            System.out.printf(format, "ID", "Imię", "Nazwisko");
+            System.out.printf("+------+----------------+----------------+%n");
+        }
+
+
+        for (Map.Entry<Integer, Pacjent> wpis: this.pacjenci.entrySet()){
+            Pacjent pacjent = wpis.getValue();
+            if(Objects.equals(pacjent.getImie(), imie) && Objects.equals(pacjent.getNazwisko(), nazwisko)){
+                this.wyswietlPacjenta(pacjent, pracownik);
+            }
+
+        }
+        System.out.printf("+------+----------------+----------------+%n");
+    }
+
 
 }

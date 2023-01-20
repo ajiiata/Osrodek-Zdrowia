@@ -5,14 +5,17 @@ public class Pacjent extends Czlowiek {
 
     private String adresZamieszkania;
 
+    private String dataUrodzenia;
+
     public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, long pesel, long nrTelefonu,
-                   String narodowosc, String miejsceUrodzenia, String adresZamieszkania) {
+                   String narodowosc, String miejsceUrodzenia, String adresZamieszkania, String dataUrodzenia) {
         super(imiePacjenta, nazwiskoPacjenta, pesel, nrTelefonu);
 
         this.idPacjenta = idPacjenta;
         this.narodowosc = narodowosc;
         this.miejsceUrodzenia = miejsceUrodzenia;
         this.adresZamieszkania = adresZamieszkania;
+        this.dataUrodzenia = dataUrodzenia;
     }
 
     public int getIdPacjenta() {
@@ -37,5 +40,9 @@ public class Pacjent extends Czlowiek {
 
     public void setAdresZamieszkania(String adresZamieszkania) {
         this.adresZamieszkania = adresZamieszkania;
+    }
+
+    public String getDataUrodzenia() {
+        return dataUrodzenia;
     }
 }
