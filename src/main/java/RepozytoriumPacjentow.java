@@ -13,7 +13,7 @@ import java.util.*;
 public class RepozytoriumPacjentow {
 
 
-    private HashMap<Integer, Pacjent> pacjenci = new HashMap<>();
+    private final HashMap<Integer, Pacjent> pacjenci = new HashMap<>();
 
     public RepozytoriumPacjentow() {
         try {
@@ -119,6 +119,19 @@ public class RepozytoriumPacjentow {
         System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
     }
 
+    public void zmodyfikujAdres(int id, String nowyAdres){
+        Pacjent pacjentDoZmianyAdresu = pacjenci.get(id);
+        pacjentDoZmianyAdresu.setAdresZamieszkania(nowyAdres);
+    }
 
+    public void zmodyfikujNrTelefonu(int id, String nowyNrTelefonu){
+        Pacjent pacjentDoZmianyNrTelefonu = pacjenci.get(id);
+        pacjentDoZmianyNrTelefonu.setNrTelefonu(nowyNrTelefonu);
+    }
 
+    public void dodajPacjenta(String imie, String nazwisko, String narodowosc, String pesel, String nrTelefonu, String adresZamieszkania, String miejsceUrodzenia, String dataUrodzenia){
+        int idPacjenta = pacjenci.size() + 1;
+        Pacjent pacjentDoDodania = new Pacjent(idPacjenta, imie, nazwisko, pesel, nrTelefonu, narodowosc, miejsceUrodzenia, adresZamieszkania, dataUrodzenia);
+        pacjenci.put(idPacjenta, pacjentDoDodania);
+    }
 }
