@@ -6,12 +6,13 @@ public class Pacjent extends Czlowiek {
     private String adresZamieszkania;
 
     public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, long pesel, long nrTelefonu,
-                   String narodowosc, String miejsceUrodzenia) {
+                   String narodowosc, String miejsceUrodzenia, String adresZamieszkania) {
         super(imiePacjenta, nazwiskoPacjenta, pesel, nrTelefonu);
 
         this.idPacjenta = idPacjenta;
         this.narodowosc = narodowosc;
         this.miejsceUrodzenia = miejsceUrodzenia;
+        this.adresZamieszkania = adresZamieszkania;
     }
 
     public int getIdPacjenta() {
