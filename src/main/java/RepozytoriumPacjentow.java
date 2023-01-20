@@ -30,7 +30,7 @@ public class RepozytoriumPacjentow {
         CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
 
         try (Reader reader = Files.newBufferedReader(sciezka)) {
-            try (CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).withCSVParser(parser).build()) {
+            try (CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(2).withCSVParser(parser).build()) {
                 String[] linia;
                 while ((linia = csvReader.readNext()) != null) {
                     Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], Long.parseLong(linia[5]), Long.parseLong(linia[6]), linia[2], linia[4], linia[7], linia[3]);

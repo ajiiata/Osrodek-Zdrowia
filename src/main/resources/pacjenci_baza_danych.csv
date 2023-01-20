@@ -1,3 +1,4 @@
+sep=;
 imie;nazwisko;narodowość;data urodzenia;miejsce urodzenia;pesel;numer telefonu;adres zamieszkania;identyfikator pacjenta
 Ada;Kowalska;polska;03.10.1949;Wolin;49100324225;959116407;Gdańsk, ul.Polna 36/16;1
 Adrian;Sadowski;polska;24.09.2002;Ruda Śląska;2292425730;628001920;Gdańsk, ul.Leśna 27/10;2
