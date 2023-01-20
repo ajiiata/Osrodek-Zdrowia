@@ -14,14 +14,17 @@ public class RepozytoriumPacjentow {
 
 
     private HashMap<Integer, Pacjent> pacjenci = new HashMap<Integer, Pacjent>();
-    public RepozytoriumPacjentow(){
+
+    public RepozytoriumPacjentow() {
         try {
             Path bazaPacjentow = Paths.get(ClassLoader.getSystemResource("pacjenci_baza_danych.csv").toURI());
             this.zaladujDane(bazaPacjentow);
         } catch (URISyntaxException e) {
             System.out.println("Nie udało się załadować danych, sorki :(");
         }
-    };
+    }
+
+    ;
 
     public void zaladujDane(Path sciezka) throws URISyntaxException {
         CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
@@ -40,15 +43,15 @@ public class RepozytoriumPacjentow {
         }
     }
 
-    private void wyswietlPacjenta(Pacjent pacjent, String pracownik){
-        if(Objects.equals(pracownik, "pielęgniarka")){
+    private void wyswietlPacjenta(Pacjent pacjent, String pracownik) {
+        if (Objects.equals(pracownik, "pielęgniarka")) {
             String format = "| %-4d | %-14s | %-14s | %-11d | %-11s | %-14s | %-23s | %-9d | %-40s |%n";
             System.out.printf(format, pacjent.getIdPacjenta(), pacjent.getImie(), pacjent.getNazwisko(), pacjent.getPesel(), pacjent.getNarodowosc(), pacjent.getDataUrodzenia(), pacjent.getMiejsceUrodzenia(), pacjent.getNrTelefonu(), pacjent.getAdresZamieszkania());
         }
 
     }
 
-    public void wyszukajPoImieniuINazwisku(String imie, String nazwisko, String pracownik){
+    public void wyszukajPoImieniuINazwisku(String imie, String nazwisko, String pracownik) {
         if (Objects.equals(pracownik, "pielęgniarka")) {
             String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-9s | %-40s |%n";
             System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
@@ -57,27 +60,33 @@ public class RepozytoriumPacjentow {
         }
 
 
-        for (Map.Entry<Integer, Pacjent> wpis: this.pacjenci.entrySet()){
+        for (Map.Entry<Integer, Pacjent> wpis : this.pacjenci.entrySet()) {
             Pacjent pacjent = wpis.getValue();
-            if(Objects.equals(pacjent.getImie(), imie) && Objects.equals(pacjent.getNazwisko(), nazwisko)){
+            if (Objects.equals(pacjent.getImie(), imie) && Objects.equals(pacjent.getNazwisko(), nazwisko)) {
                 this.wyswietlPacjenta(pacjent, pracownik);
             }
 
         }
-            System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
 
     }
 
 
-
-    public void pokazWszystkieDane(String pracownik){
+    public void pokazWszystkieDane(String pracownik) {
         if (Objects.equals(pracownik, "pielęgniarka")) {
             String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-9s | %-40s |%n";
             System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
             System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia", "Nr tel", "Adres zamieszkania");
             System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
+        } else {
+            String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
+            System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+            System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia");
+            System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
         }
-        for (Map.Entry<Integer, Pacjent> wpis: this.pacjenci.entrySet()){
+
+
+        for (Map.Entry<Integer, Pacjent> wpis : this.pacjenci.entrySet()) {
             Pacjent pacjent = wpis.getValue();
 
             this.wyswietlPacjenta(pacjent, pracownik);
@@ -86,27 +95,50 @@ public class RepozytoriumPacjentow {
     }
 
 
-
-    public void wyszukajPoPeselu(long pesel, String pracownik){
+    public void wyszukajPoPeselu(long pesel, String pracownik) {
         if (Objects.equals(pracownik, "pielęgniarka")) {
             String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-9s | %-40s |%n";
             System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
             System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia", "Nr tel", "Adres zamieszkania");
             System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
+        } else {
+            String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
+            System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+            System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia");
+            System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
         }
 
 
-        for (Map.Entry<Integer, Pacjent> wpis: this.pacjenci.entrySet()){
+        for (Map.Entry<Integer, Pacjent> wpis : this.pacjenci.entrySet()) {
             Pacjent pacjent = wpis.getValue();
-            if(pacjent.getPesel() == pesel){
+            if (pacjent.getPesel() == pesel) {
                 this.wyswietlPacjenta(pacjent, pracownik);
             }
-
         }
-        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
-
+        if (Objects.equals(pracownik, "pielęgniarka")) this.ostatniaLiniaPielegniarki();
+        else this.ostatniaLiniaLekarza();
     }
 
+    private void naglowekLekarza() {
+        String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+        System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia");
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+    }
 
+    private void naglowekPielegniarka() {
+        String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-9s | %-40s |%n";
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
+        System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia", "Nr tel", "Adres zamieszkania");
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
+    }
+
+    private void ostatniaLiniaLekarza() {
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+    }
+
+    private void ostatniaLiniaPielegniarki() {
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
+    }
 
 }
