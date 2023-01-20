@@ -1,7 +1,10 @@
 import java.net.URISyntaxException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         var test = new RepozytoriumPacjentow();
-        test.wyszukajPoImieniuINazwisku("Jan", "Kowalska", "pielęgniarka");
+        Scanner s = new Scanner(System.in);
+        long wybor = s.nextLong();
+        test.wyszukajPoPeselu(wybor, "pielęgniarka");
     }}
