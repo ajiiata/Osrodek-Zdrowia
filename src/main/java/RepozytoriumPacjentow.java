@@ -13,7 +13,7 @@ import java.util.*;
 public class RepozytoriumPacjentow {
 
 
-    private HashMap<Integer, Pacjent> pacjenci = new HashMap<Integer, Pacjent>();
+    private HashMap<Integer, Pacjent> pacjenci = new HashMap<>();
 
     public RepozytoriumPacjentow() {
         try {
@@ -24,7 +24,6 @@ public class RepozytoriumPacjentow {
         }
     }
 
-    ;
 
     public void zaladujDane(Path sciezka) throws URISyntaxException {
         CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
