@@ -1,10 +1,10 @@
 public abstract class Czlowiek {
     private String imie;
     private String nazwisko;
-    private final long pesel;
-    private long nrTelefonu;
+    private final String pesel;
+    private String nrTelefonu;
 
-    public Czlowiek(String imie, String nazwisko, long pesel, long nrTelefonu) {
+    public Czlowiek(String imie, String nazwisko, String pesel, String nrTelefonu) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.pesel = pesel;
@@ -19,11 +19,11 @@ public abstract class Czlowiek {
         return this.nazwisko;
     }
 
-    public long getPesel() {
+    public String getPesel() {
         return this.pesel;
     }
 
-    public long getNrTelefonu() {
+    public String getNrTelefonu() {
         return this.nrTelefonu;
     }
 
@@ -35,7 +35,7 @@ public abstract class Czlowiek {
         this.nazwisko = nazwisko;
     }
 
-    public void setNrTelefonu(long nrTelefonu) {
+    public void setNrTelefonu(String nrTelefonu) {
         this.nrTelefonu = nrTelefonu;
     }
 
