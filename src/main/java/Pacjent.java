@@ -7,7 +7,7 @@ public class Pacjent extends Czlowiek {
 
     private final String dataUrodzenia;
 
-    public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, long pesel, long nrTelefonu,
+    public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, String pesel, String nrTelefonu,
                    String narodowosc, String miejsceUrodzenia, String adresZamieszkania, String dataUrodzenia) {
         super(imiePacjenta, nazwiskoPacjenta, pesel, nrTelefonu);
 
