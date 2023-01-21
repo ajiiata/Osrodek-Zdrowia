@@ -56,12 +56,12 @@ public class Pacjent extends Czlowiek {
         return dataUrodzenia;
     }
 
-    public void getHistoriaLeczenia() {
-        System.out.println(this.historiaLeczenia.toString());
+    public String getHistoriaLeczenia() {
+        return this.historiaLeczenia.toString();
     }
 
-    public void getPrzyjmowaneLeki() {
-        System.out.println(this.przyjmowaneLeki.toString());
+    public String getPrzyjmowaneLeki() {
+        return this.przyjmowaneLeki.toString();
     }
 
     public void dodajDoHistoriiLeczenia(String nowyElementWHistoriiLeczenia) {

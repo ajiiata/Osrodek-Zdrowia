@@ -41,14 +41,13 @@ public class RepozytoriumPacjentow {
             System.out.println("Nie udało się pobrać danych, sorki :(");
         }
     }
-
+//--------------------------------------------------
     private void wyswietlPacjenta(Pacjent pacjent, String pracownik) {
         if (Objects.equals(pracownik, "pielęgniarka")) {
             String format = "| %-4d | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-9s | %-40s |%n";
             System.out.printf(format, pacjent.getIdPacjenta(), pacjent.getImie(), pacjent.getNazwisko(), pacjent.getPesel(), pacjent.getNarodowosc(), pacjent.getDataUrodzenia(), pacjent.getMiejsceUrodzenia(), pacjent.getNrTelefonu(), pacjent.getAdresZamieszkania());
-        }
-        else{
-            String format = "| %-4d | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
+        } else {
+            String format = "| %-4d | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-200s | %-100s |%n";
             System.out.printf(format, pacjent.getIdPacjenta(), pacjent.getImie(), pacjent.getNazwisko(), pacjent.getPesel(), pacjent.getNarodowosc(), pacjent.getDataUrodzenia(), pacjent.getMiejsceUrodzenia(), pacjent.getHistoriaLeczenia(), pacjent.getPrzyjmowaneLeki());
         }
     }
@@ -98,10 +97,10 @@ public class RepozytoriumPacjentow {
     }
 
     private void naglowekLekarza() {
-        String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
-        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+        String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-200s | %-100s |%n";
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+%n");
         System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia", "Historia leczenia", "Przyjmowane leki");
-        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+%n");
     }
 
     private void naglowekPielegniarka() {
@@ -112,28 +111,30 @@ public class RepozytoriumPacjentow {
     }
 
     private void ostatniaLiniaLekarza() {
-        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
+        System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+%n");
+
     }
 
     private void ostatniaLiniaPielegniarki() {
         System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+-----------+------------------------------------------+%n");
     }
 
-    public void zmodyfikujAdres(int id, String nowyAdres){
+    public void zmodyfikujAdres(int id, String nowyAdres) {
         Pacjent pacjentDoZmianyAdresu = pacjenci.get(id);
         pacjentDoZmianyAdresu.setAdresZamieszkania(nowyAdres);
     }
 
-    public void zmodyfikujNrTelefonu(int id, String nowyNrTelefonu){
+    public void zmodyfikujNrTelefonu(int id, String nowyNrTelefonu) {
         Pacjent pacjentDoZmianyNrTelefonu = pacjenci.get(id);
         pacjentDoZmianyNrTelefonu.setNrTelefonu(nowyNrTelefonu);
     }
 
-    public void dodajPacjenta(String imie, String nazwisko, String narodowosc, String pesel, String nrTelefonu, String adresZamieszkania, String miejsceUrodzenia, String dataUrodzenia){
+    public void dodajPacjenta(String imie, String nazwisko, String narodowosc, String pesel, String nrTelefonu, String adresZamieszkania, String miejsceUrodzenia, String dataUrodzenia) {
         int idPacjenta = pacjenci.size() + 1;
         Pacjent pacjentDoDodania = new Pacjent(idPacjenta, imie, nazwisko, pesel, nrTelefonu, narodowosc, miejsceUrodzenia, adresZamieszkania, dataUrodzenia, new ArrayList<>(), new ArrayList<>());
         pacjenci.put(idPacjenta, pacjentDoDodania);
     }
 
-    public void zapiszDoPliku(){}
+    public void zapiszDoPliku() {
+    }
 }
