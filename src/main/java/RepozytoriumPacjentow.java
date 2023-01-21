@@ -133,6 +133,26 @@ public class RepozytoriumPacjentow {
         pacjentDoZmianyNrTelefonu.setNrTelefonu(nowyNrTelefonu);
     }
 
+    public void zmodyfikujHistoriePacjentaPoID(int idPacjenta, int idElementu, String noweDane){
+        try{
+        this.pacjenci.get(idPacjenta).zmodyfikujElementZHistoriiLeczeniaPoIndeksie(idElementu, noweDane);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+
+    public void zmodyfikujHistoriePacjentaPoWartosci(int idPacjenta, String wartosc, String noweDane){
+        try{
+            this.pacjenci.get(idPacjenta).modyfikujElementZHistoriiLeczeniaPoWartosci(wartosc, noweDane);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+
     public void dodajPacjenta(String imie, String nazwisko, String narodowosc, String pesel, String nrTelefonu, String adresZamieszkania, String miejsceUrodzenia, String dataUrodzenia) {
         int idPacjenta = pacjenci.size() + 1;
         Pacjent pacjentDoDodania = new Pacjent(idPacjenta, imie, nazwisko, pesel, nrTelefonu, narodowosc, miejsceUrodzenia, adresZamieszkania, dataUrodzenia, new ArrayList<>(), new ArrayList<>());
@@ -140,9 +160,6 @@ public class RepozytoriumPacjentow {
     }
 
     public void zapiszDoPliku(){
-        //final Path CSV_FILE_PATH = Paths.get(ClassLoader.getSystemResource("final_baza_danych_pacjentow.csv").toURI());
-
-
         try{
             final Path CSV_FILE_PATH = Path.of("./final_baza_danych_pacjentow.csv");
             FileWriter outputfile = new FileWriter(CSV_FILE_PATH.toFile());
