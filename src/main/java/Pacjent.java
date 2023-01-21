@@ -57,11 +57,13 @@ public class Pacjent extends Czlowiek {
     }
 
     public String getHistoriaLeczenia() {
-        return this.historiaLeczenia.toString();
+        String leczenie = this.historiaLeczenia.toString();
+        return leczenie.substring(1, leczenie.length() - 2).replaceAll("  ", " ");
     }
 
     public String getPrzyjmowaneLeki() {
-        return this.przyjmowaneLeki.toString();
+        String leki = this.przyjmowaneLeki.toString();
+        return leki.substring(1, leki.length() - 2).replaceAll("  ", " ");
     }
 
     public void dodajDoHistoriiLeczenia(String nowyElementWHistoriiLeczenia) {

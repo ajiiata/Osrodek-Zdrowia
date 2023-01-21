@@ -9,6 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import com.opencsv.CSVWriter;
+
 
 public class RepozytoriumPacjentow {
 
@@ -32,7 +34,9 @@ public class RepozytoriumPacjentow {
             try (CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).withCSVParser(parser).build()) {
                 String[] linia;
                 while ((linia = csvReader.readNext()) != null) {
-                    Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3], new ArrayList<String>(Arrays.asList(linia[9].split(","))), new ArrayList<String>(Arrays.asList(linia[10].split(","))));
+                    ArrayList<String> historiaLeczenia = new ArrayList<>(Arrays.asList(linia[9].split(",")));
+                    ArrayList<String> przyjmowaneLeki = new ArrayList<>(Arrays.asList(linia[10].split(",")));
+                    Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3], historiaLeczenia, przyjmowaneLeki);
                     this.pacjenci.put(Integer.parseInt(linia[8]), pacjent);
                 }
             }
@@ -135,6 +139,57 @@ public class RepozytoriumPacjentow {
         pacjenci.put(idPacjenta, pacjentDoDodania);
     }
 
-    public void zapiszDoPliku() {
+    public void zapiszDoPliku(){
+        //final Path CSV_FILE_PATH = Paths.get(ClassLoader.getSystemResource("final_baza_danych_pacjentow.csv").toURI());
+
+
+        try{
+            final Path CSV_FILE_PATH = Path.of("./final_baza_danych_pacjentow.csv");
+            FileWriter outputfile = new FileWriter(CSV_FILE_PATH.toFile());
+            CSVWriter writer = new CSVWriter(outputfile, ';',
+                    CSVWriter.NO_QUOTE_CHARACTER,
+                    CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                    CSVWriter.DEFAULT_LINE_END);
+
+            List<String[]> data = new ArrayList<String[]>();
+            String [] naglowki = new String[11];
+            naglowki[0] = "Imię";
+            naglowki[1] = "Nazwisko";
+            naglowki[2] = "Narodowość";
+            naglowki[3] = "Data urodzenia";
+            naglowki[4] = "Miejsce urodzenia";
+            naglowki[5] = "Pesel";
+            naglowki[6] = "Nr telefonu";
+            naglowki[7] = "Adres zamieszkania";
+            naglowki[8] = "ID";
+            naglowki[9] = "Historia leczenia";
+            naglowki[10] = "Przyjmowane leki";
+            data.add(naglowki);
+
+            for(Map.Entry<Integer, Pacjent> e: this.pacjenci.entrySet()){
+                String [] tab = new String[11];
+                tab[0] = e.getValue().getImie();
+                tab[1] = e.getValue().getNazwisko();
+                tab[2] = e.getValue().getNarodowosc();
+                tab[3] = e.getValue().getDataUrodzenia();
+                tab[4] = e.getValue().getMiejsceUrodzenia();
+                tab[5] = e.getValue().getPesel();
+                tab[6] = e.getValue().getNrTelefonu();
+                tab[7] = e.getValue().getAdresZamieszkania();
+                tab[8] = String.valueOf(e.getValue().getIdPacjenta());
+                tab[9] = e.getValue().getHistoriaLeczenia();
+                tab[10] = e.getValue().getPrzyjmowaneLeki();
+                //System.out.println(e.getValue().getPrzyjmowaneLeki());
+                data.add(tab);
+            }
+
+            writer.writeAll(data);
+            writer.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
+
 }

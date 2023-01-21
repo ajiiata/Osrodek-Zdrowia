@@ -1,7 +1,9 @@
 import java.net.URISyntaxException;
+import java.io.*;
+import java.util.*;
+import com.opencsv.CSVWriter;
 
 public class Main {
     public static void main(String[] args) {
-        var test = new RepozytoriumPacjentow();
-        test.wyszukajPoPeselu("02292425730", "lekarz");
+
     }}
