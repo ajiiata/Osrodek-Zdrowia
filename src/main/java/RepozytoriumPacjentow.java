@@ -152,6 +152,82 @@ public class RepozytoriumPacjentow {
         }
     }
 
+    public void zmodyfikujLekiPacjentaPoID(int idPacjenta, int idElementu, String noweDane){
+        try{
+            this.pacjenci.get(idPacjenta).zmodyfikujElementZPrzyjmowanychLekow(idElementu, noweDane);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void zmodyfikujLekiPacjentaPoWartosci(int idPacjenta, String wartosc, String noweDane){
+        try{
+            this.pacjenci.get(idPacjenta).modyfikujElementZPrzyjmowanychLekowPoWartosci(wartosc, noweDane);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void dodajElementDoHistoriiLeczenia(int idPacjenta, String noweDane){
+        try{
+            this.pacjenci.get(idPacjenta).dodajDoHistoriiLeczenia(noweDane);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void dodajElementDoLekow(int idPacjenta, String noweDane){
+        try{
+            this.pacjenci.get(idPacjenta).dodajPrzyjmowanyLek(noweDane);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void usunElementZHistoriiLeczeniaPoID(int idPacjenta, int idElementu){
+        try{
+            this.pacjenci.get(idPacjenta).usunElementZHistoriiLeczeniaPoIndeksie(idElementu);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e) {
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void usunLekPoID(int idPacjenta, int idElementu){
+        try{
+            this.pacjenci.get(idPacjenta).usunElementZPrzyjmowanychLekowPoIndeksie(idElementu);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e) {
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void usunElementZHistoriiLeczeniaPoWartosci(int idPacjenta, String staraTresc){
+        try{
+            this.pacjenci.get(idPacjenta).usunElementZHistoriiLeczeniaPoWartosci(staraTresc);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+    public void usunLekPoWartosci(int idPacjenta, String staraTresc){
+        try{
+            this.pacjenci.get(idPacjenta).usunElementZPrzyjmowanychLekowPoWartosci(staraTresc);
+            System.out.println("Modyfikacja się powiodła");
+        }catch(Exception e){
+            System.out.println("Modyfikacja nie powiodła się");
+        }
+    }
+
+
+
+
+
 
     public void dodajPacjenta(String imie, String nazwisko, String narodowosc, String pesel, String nrTelefonu, String adresZamieszkania, String miejsceUrodzenia, String dataUrodzenia) {
         int idPacjenta = pacjenci.size() + 1;
