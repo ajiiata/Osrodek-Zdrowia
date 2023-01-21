@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ListIterator;
 
 public class Pacjent extends Czlowiek {
@@ -55,12 +56,12 @@ public class Pacjent extends Czlowiek {
         return dataUrodzenia;
     }
 
-    public ArrayList<String> getHistoriaLeczenia() {
-        return historiaLeczenia;
+    public void getHistoriaLeczenia() {
+        System.out.println(this.historiaLeczenia.toString());
     }
 
-    public ArrayList<String> getPrzyjmowaneLeki() {
-        return przyjmowaneLeki;
+    public void getPrzyjmowaneLeki() {
+        System.out.println(this.przyjmowaneLeki.toString());
     }
 
     public void dodajDoHistoriiLeczenia(String nowyElementWHistoriiLeczenia) {

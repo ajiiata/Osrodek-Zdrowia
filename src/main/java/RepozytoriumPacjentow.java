@@ -49,7 +49,7 @@ public class RepozytoriumPacjentow {
         }
         else{
             String format = "| %-4d | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
-            System.out.printf(format, pacjent.getIdPacjenta(), pacjent.getImie(), pacjent.getNazwisko(), pacjent.getPesel(), pacjent.getNarodowosc(), pacjent.getDataUrodzenia(), pacjent.getMiejsceUrodzenia());
+            System.out.printf(format, pacjent.getIdPacjenta(), pacjent.getImie(), pacjent.getNazwisko(), pacjent.getPesel(), pacjent.getNarodowosc(), pacjent.getDataUrodzenia(), pacjent.getMiejsceUrodzenia(), pacjent.getHistoriaLeczenia(), pacjent.getPrzyjmowaneLeki());
         }
     }
 
@@ -100,7 +100,7 @@ public class RepozytoriumPacjentow {
     private void naglowekLekarza() {
         String format = "| %-4s | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s |%n";
         System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
-        System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia");
+        System.out.printf(format, "ID", "Imię", "Nazwisko", "PESEL", "Narodowość", "Data urodzenia", "Miejsce urodzenia", "Historia leczenia", "Przyjmowane leki");
         System.out.printf("+------+----------------+----------------+-------------+-------------+----------------+-------------------------+%n");
     }
 
