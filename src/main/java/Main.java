@@ -23,8 +23,8 @@ public class Main {
         } else {
             if (pracownik.equals("lekarz")) {
                 while (true) {
-                    System.out.println("Co chcesz zrobić lekarzu? (0 - wyjść z programu, 1 - wyświetlić wszystkich pacjentów, 3 - wyszukać pacjenta,\n4- zmodyfikować historię leczenia pacjenta, 5 - zmodyfikować przyjmowane leki pacjenta, 6 - dodać wpis do historii leczenia pacjenta, 7 - dodać pacjentowi nowy przyjmowany lek, \n" +
-                            "8 - usunąć wpis z historii leczenia, 8 - usunąć wpis z przyjmowanych leków)\n");
+                    System.out.println("Co chcesz zrobić lekarzu? (0 - wyjść z programu, 1 - wyświetlić wszystkich pacjentów, 2 - wyszukać pacjenta,\n3- zmodyfikować historię leczenia pacjenta, 4 - zmodyfikować przyjmowane leki pacjenta, 5 - dodać wpis do historii leczenia pacjenta, 6 - dodać pacjentowi nowy przyjmowany lek, \n" +
+                            "7 - usunąć wpis z historii leczenia, 8 - usunąć wpis z przyjmowanych leków)\n");
                     int operacjaDoWykonania = s.nextInt();
 
                     if (operacjaDoWykonania == 0) {
@@ -37,7 +37,7 @@ public class Main {
 
 
             } else {
-                System.out.println("Co chcesz zrobić pielęgniarko? (0 - wyjść z programu, 1 - wyświetlić wszystkich pacjentów, 3 - wyszukać pacjenta, 4- zmodyfikować adres zamieszkania pacjenta, 5 - zmodyfikować numer telefonu pacjenta, 6 - dodać nowego pacjenta do bazy)\n");
+                System.out.println("Co chcesz zrobić pielęgniarko? (0 - wyjść z programu, 1 - wyświetlić wszystkich pacjentów, 2 - wyszukać pacjenta, 3- zmodyfikować adres zamieszkania pacjenta, 4 - zmodyfikować numer telefonu pacjenta, 5 - dodać nowego pacjenta do bazy)\n");
 
             }
         }
@@ -58,13 +58,20 @@ public class Main {
             long pesel = s1.nextLong();
             REPOZYTORIUM.wyszukajPoPeselu(Long.toString(pesel), pracownik);
         } else if (odpowiedz == 2) {
-            System.out.println("Podaj imię i nazwisko:\n");
-            String imieINazwisko = s1.nextLine();
-            String[] words = imieINazwisko.split(" ");
+            System.out.println("Podaj imię:");
+            String imie = s1.nextLine();
+            String [] test = imie.split(" ");
 
-            REPOZYTORIUM.wyszukajPoImieniuINazwisku(words[0], words[1], pracownik);
+            REPOZYTORIUM.wyszukajPoImieniuINazwisku(test[0], test[1], pracownik);
         }
     }
+
+    private static void zmodyfikujHistorieLeczenia(){
+
+    }
+
+
+
 
 
 }
