@@ -32,7 +32,7 @@ public class RepozytoriumPacjentow {
             try (CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).withCSVParser(parser).build()) {
                 String[] linia;
                 while ((linia = csvReader.readNext()) != null) {
-                    Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3], linia[9], linia[10]);
+                    Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3], new ArrayList<String>(Arrays.asList(linia[9].split(","))), new ArrayList<String>(Arrays.asList(linia[10].split(","))));
                     this.pacjenci.put(Integer.parseInt(linia[8]), pacjent);
                 }
             }
@@ -131,7 +131,7 @@ public class RepozytoriumPacjentow {
 
     public void dodajPacjenta(String imie, String nazwisko, String narodowosc, String pesel, String nrTelefonu, String adresZamieszkania, String miejsceUrodzenia, String dataUrodzenia){
         int idPacjenta = pacjenci.size() + 1;
-        Pacjent pacjentDoDodania = new Pacjent(idPacjenta, imie, nazwisko, pesel, nrTelefonu, narodowosc, miejsceUrodzenia, adresZamieszkania, dataUrodzenia);
+        Pacjent pacjentDoDodania = new Pacjent(idPacjenta, imie, nazwisko, pesel, nrTelefonu, narodowosc, miejsceUrodzenia, adresZamieszkania, dataUrodzenia, new ArrayList<>(), new ArrayList<>());
         pacjenci.put(idPacjenta, pacjentDoDodania);
     }
 
