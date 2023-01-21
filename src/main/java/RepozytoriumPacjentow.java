@@ -17,7 +17,7 @@ public class RepozytoriumPacjentow {
 
     public RepozytoriumPacjentow() {
         try {
-            Path bazaPacjentow = Paths.get(ClassLoader.getSystemResource("baza_danych_pacjentow.csv").toURI());
+            Path bazaPacjentow = Paths.get(ClassLoader.getSystemResource("final_baza_danych_pacjentow.csv").toURI());
             this.zaladujDane(bazaPacjentow);
         } catch (URISyntaxException e) {
             System.out.println("Nie udało się załadować danych, sorki :(");
@@ -32,7 +32,7 @@ public class RepozytoriumPacjentow {
             try (CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).withCSVParser(parser).build()) {
                 String[] linia;
                 while ((linia = csvReader.readNext()) != null) {
-                    Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3]);
+                    Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3], linia[9], linia[10]);
                     this.pacjenci.put(Integer.parseInt(linia[8]), pacjent);
                 }
             }
@@ -134,4 +134,6 @@ public class RepozytoriumPacjentow {
         Pacjent pacjentDoDodania = new Pacjent(idPacjenta, imie, nazwisko, pesel, nrTelefonu, narodowosc, miejsceUrodzenia, adresZamieszkania, dataUrodzenia);
         pacjenci.put(idPacjenta, pacjentDoDodania);
     }
+
+    public void zapiszDoPliku(){}
 }

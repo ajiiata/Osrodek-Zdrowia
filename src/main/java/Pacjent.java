@@ -7,8 +7,12 @@ public class Pacjent extends Czlowiek {
 
     private final String dataUrodzenia;
 
+    private String historiaLeczenia;
+
+    private String przyjmowaneLeki;
+
     public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, String pesel, String nrTelefonu,
-                   String narodowosc, String miejsceUrodzenia, String adresZamieszkania, String dataUrodzenia) {
+                   String narodowosc, String miejsceUrodzenia, String adresZamieszkania, String dataUrodzenia, String historiaLeczenia, String przyjmowaneLeki) {
         super(imiePacjenta, nazwiskoPacjenta, pesel, nrTelefonu);
 
         this.idPacjenta = idPacjenta;
@@ -16,6 +20,8 @@ public class Pacjent extends Czlowiek {
         this.miejsceUrodzenia = miejsceUrodzenia;
         this.adresZamieszkania = adresZamieszkania;
         this.dataUrodzenia = dataUrodzenia;
+        this.historiaLeczenia = historiaLeczenia;
+        this.przyjmowaneLeki = przyjmowaneLeki;
     }
 
     public int getIdPacjenta() {
@@ -44,5 +50,21 @@ public class Pacjent extends Czlowiek {
 
     public String getDataUrodzenia() {
         return dataUrodzenia;
+    }
+
+    public String getHistoriaLeczenia() {
+        return historiaLeczenia;
+    }
+
+    public String getPrzyjmowaneLeki() {
+        return przyjmowaneLeki;
+    }
+
+    public void setHistoriaLeczenia(String historiaLeczenia) {
+        this.historiaLeczenia = historiaLeczenia;
+    }
+
+    public void setPrzyjmowaneLeki(String przyjmowaneLeki) {
+        this.przyjmowaneLeki = przyjmowaneLeki;
     }
 }
