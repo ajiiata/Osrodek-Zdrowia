@@ -6,6 +6,7 @@ public class Main {
     private static String pracownik = "";
 
     public static void main(String[] args) {
+
         Scanner s = new Scanner(System.in);
         System.out.println("Witaj w naszym Ośrodku Zdrowia! Poniżej wpisz kim jesteś: (0 - wyjdź z programu, 1 - lekarz, 2 - pielęgniarka)\n");
         int danaZKlawiatury = -1;
@@ -60,18 +61,15 @@ public class Main {
         } else if (odpowiedz == 2) {
             System.out.println("Podaj imię:");
             String imie = s1.nextLine();
-            String [] test = imie.split(" ");
+            String[] test = imie.split(" ");
 
             REPOZYTORIUM.wyszukajPoImieniuINazwisku(test[0], test[1], pracownik);
         }
     }
 
-    private static void zmodyfikujHistorieLeczenia(){
+    private static void zmodyfikujHistorieLeczenia() {
 
     }
-
-
-
 
 
 }
