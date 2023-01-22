@@ -23,9 +23,12 @@ public class Zaswiadczenie_Lekarskie {
 
     void wyswietlZaswiadczenie() {
         System.out.println("\nUtworzono zaswiadczenie lekarskie:" + typ_zaswiadczenia +
-                "\nPodmiot wystawiający: " + podmiotWystawiajacy + "\nData: " + dataWystawienia + " Miejscowość: " + miejscowosc +
-                "\nImię i Nazwisko: " + imiePacjenta + " " + nazwiskoPacjenta + "\nPesel: " + pesel +
-                "\nInformacje: " + dodatkoweInformacje);
+                "\nPodmiot wystawiający: " + podmiotWystawiajacy +
+                "\nData: " + dataWystawienia +
+                "\nMiejscowość: " + miejscowosc +
+                "\nImię i Nazwisko: " + imiePacjenta + " " + nazwiskoPacjenta +
+                "\nPesel: " + pesel +
+                "\nInformacje: " + dodatkoweInformacje + "\n");
     }
 
 

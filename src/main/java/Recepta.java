@@ -27,10 +27,15 @@ public class Recepta {
 
 
     void wyswietlRecepte() {
-        System.out.println("Wystawiono recepte:" + "\n Podmiot wystawiający: " + podmiotWystawiajacy +
-                "\nData: " + dataWystawienia + "\nNumer recepty: " + numerRecepty +
-                "\n Imię i Nazwisko: " + imiePacjenta + " " + nazwiskoPacjenta + "\nPesel: " + pesel +
-                "Informacje: " + dodatkoweInformacje + "\nLek: "+ nazwaLeku + "\nKod recepty: " + kodRecepty);
+        System.out.println("\nWystawiono recepte:" +
+                "\nPodmiot wystawiający: " + podmiotWystawiajacy +
+                "\nData: " + dataWystawienia +
+                "\nNumer recepty: " + numerRecepty +
+                "\nKod recepty: " + kodRecepty +
+                "\nImię i Nazwisko: " + imiePacjenta + " " + nazwiskoPacjenta +
+                "\nPesel: " + pesel +
+                "\nLek: " + nazwaLeku +
+                "\nInformacje: " + dodatkoweInformacje + "\n");
     }
 
 }
