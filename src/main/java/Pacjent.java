@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ListIterator;
 
 public class Pacjent extends Czlowiek {
@@ -11,9 +10,9 @@ public class Pacjent extends Czlowiek {
 
     private final String dataUrodzenia;
 
-    private ArrayList<String> historiaLeczenia;
+    private final ArrayList<String> historiaLeczenia;
 
-    private ArrayList<String> przyjmowaneLeki;
+    private final ArrayList<String> przyjmowaneLeki;
 
     public Pacjent(int idPacjenta, String imiePacjenta, String nazwiskoPacjenta, String pesel, String nrTelefonu,
                    String narodowosc, String miejsceUrodzenia, String adresZamieszkania, String dataUrodzenia, ArrayList<String> historiaLeczenia, ArrayList<String> przyjmowaneLeki) {
@@ -58,12 +57,12 @@ public class Pacjent extends Czlowiek {
 
     public String getHistoriaLeczenia() {
         String leczenie = this.historiaLeczenia.toString();
-        return leczenie.substring(1, leczenie.length() - 2).replaceAll("  ", " ");
+        return leczenie.substring(1, leczenie.length() - 1).replaceAll(" {2}", " ");
     }
 
     public String getPrzyjmowaneLeki() {
         String leki = this.przyjmowaneLeki.toString();
-        return leki.substring(1, leki.length() - 2).replaceAll("  ", " ");
+        return leki.substring(1, leki.length() - 1).replaceAll(" {2}", " ");
     }
 
     public void dodajDoHistoriiLeczenia(String nowyElementWHistoriiLeczenia) {
