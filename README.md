@@ -15,7 +15,18 @@ The project was created using:
 * Java version:
 
 ## Usage
+The initial database is retrieved from the file. It can be used by both nurses and doctors but:
+> NURSES:
+* can only search for patients by name or PESEL number
+* do not have access to the history of the disease and information about the medications they are taking
+* can modify the residence address in the database and the phone number
+* can add new patients
 
+> DOCTORS:
+* do not have access to the patient's address and phone
+* can modify data about treatment history and medications being taken
+
+When logging in, the system asks if you are a doctor or nurse.
 
 ## Project status
 Project is complete.
@@ -39,7 +50,18 @@ Projekt został stworzony przy użyciu:
 * Java wersja:
 
 ## Zastosowanie
+Początkowa baza danych pobierana jest z pliku. Mogą z niej korzystać zarówno pielęgniarki, jak i lekarze przy czym:
+> PIELĘGNIARKI:
+* mogą wyszukiwać pacjentów tylko po imieniu i nazwisku lub po numerze PESEL
+* nie mają dostępu do historii choroby oraz informacji o przyjmowanych lekach
+* mogą modyfikować adres zamieszkania w bazie i numer telefonu
+* mogą dopisywać nowych pacjentów
 
+> LEKARZE:
+* nie mają dostępu do adresu i telefonu pacjentów
+* mogą modyfikować dane dotyczące historii leczenia i przyjmowanych leków
+
+Przy logowaniu system pyta, czy jest się lekarzem czy pielęgniarką.
 
 ## Status projektu
 Projekt jest skończony.
