@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -70,39 +71,43 @@ public class Main {
     }
 
     private static void wypiszRecepte() {
+        SKANER.nextLine();
         System.out.println("Proszę podać imię pacjenta:");
         String imie = SKANER.nextLine();
-
-        String nazwisko = SKANER.nextLine();
         System.out.println("Proszę podać nazwisko pacjenta:");
-
-        String pesel = SKANER.nextLine();
+        String nazwisko = SKANER.nextLine();
         System.out.println("Proszę podać pesel pacjenta:");
-
+        String pesel = SKANER.nextLine();
+        while (!pesel.matches("^[0-9]{11}$")) {
+            System.out.println("Proszę podać poprawny pesel!!!");
+            pesel = SKANER.nextLine();
+        }
         System.out.println("Proszę podać nazwę leku:");
         String nazwaLeku = SKANER.nextLine();
-
         System.out.println("Proszę podać dodatkowe informacje:");
         String dodatkoweInformacje = SKANER.nextLine();
-
-        System.out.println("dziękuję");
         Recepta r = new Recepta(imie, nazwisko, pesel, nazwaLeku, dodatkoweInformacje);
+        r.wyswietlRecepte();
     }
 
     private static void wypiszZaswiadczenieLekarskie() {
+        SKANER.nextLine();
         System.out.println("Proszę podać typ zaświadczenia:");
         String typ = SKANER.nextLine();
-        String imie = SKANER.nextLine();
         System.out.println("Proszę podać imię pacjenta:");
-        String nazwisko = SKANER.nextLine();
+        String imie = SKANER.nextLine();
         System.out.println("Proszę podać nazwisko pacjenta:");
-        String pesel = SKANER.nextLine();
+        String nazwisko = SKANER.nextLine();
         System.out.println("Proszę podać pesel pacjenta:");
-        String miejscowosc = SKANER.nextLine();
+        String pesel = SKANER.nextLine();
+        while (!pesel.matches("^[0-9]{11}$")) {
+            System.out.println("Proszę podać poprawny pesel!!!");
+            pesel = SKANER.nextLine();
+        }
         System.out.println("Proszę podać miejscowość wystawienia:");
-        String dodatkoweInformacje = SKANER.nextLine();
+        String miejscowosc = SKANER.nextLine();
         System.out.println("Proszę podać dodatkowe informacje:");
-        String dodatkoweInformacje1 = SKANER.nextLine();
+        String dodatkoweInformacje = SKANER.nextLine();
         Zaswiadczenie_Lekarskie z = new Zaswiadczenie_Lekarskie(typ, imie, nazwisko, pesel, miejscowosc, dodatkoweInformacje);
         z.wyswietlZaswiadczenie();
     }
