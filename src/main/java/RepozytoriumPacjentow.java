@@ -35,8 +35,8 @@ public class RepozytoriumPacjentow {
             try (CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).withCSVParser(parser).build()) {
                 String[] linia;
                 while ((linia = csvReader.readNext()) != null) {
-                    ArrayList<String> historiaLeczenia = new ArrayList<>(Arrays.asList(linia[9].split(",")));
-                    ArrayList<String> przyjmowaneLeki = new ArrayList<>(Arrays.asList(linia[10].split(",")));
+                    ArrayList<String> historiaLeczenia = new ArrayList<>(Arrays.asList(linia[9].split(", ")));
+                    ArrayList<String> przyjmowaneLeki = new ArrayList<>(Arrays.asList(linia[10].split(", ")));
                     Pacjent pacjent = new Pacjent(Integer.parseInt(linia[8]), linia[0], linia[1], linia[5], linia[6], linia[2], linia[4], linia[7], linia[3], historiaLeczenia, przyjmowaneLeki);
                     this.pacjenci.put(Integer.parseInt(linia[8]), pacjent);
                 }
@@ -47,7 +47,6 @@ public class RepozytoriumPacjentow {
         }
     }
 
-    //--------------------------------------------------
     private void wyswietlPacjenta(Pacjent pacjent, String pracownik) {
         if (Objects.equals(pracownik, "pielęgniarka")) {
             String format = "| %-4d | %-14s | %-14s | %-11s | %-11s | %-14s | %-23s | %-9s | %-40s |%n";
