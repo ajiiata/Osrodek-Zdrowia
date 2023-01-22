@@ -105,7 +105,6 @@ public class Main {
             SKANER.nextLine();
             String staraWartosc = SKANER.nextLine();
             System.out.println("Podaj zmodyfikowaną treść: ");
-            SKANER.nextLine();
             String tresc = SKANER.nextLine();
             REPOZYTORIUM.zmodyfikujHistoriePacjentaPoWartosci(idPacjenta, staraWartosc, tresc);
         }
@@ -129,7 +128,6 @@ public class Main {
             SKANER.nextLine();
             String staraWartosc = SKANER.nextLine();
             System.out.println("Podaj zmodyfikowaną treść: ");
-            SKANER.nextLine();
             String tresc = SKANER.nextLine();
             REPOZYTORIUM.zmodyfikujLekiPacjentaPoWartosci(idPacjenta, staraWartosc, tresc);
         }
@@ -164,8 +162,8 @@ public class Main {
             REPOZYTORIUM.usunElementZHistoriiLeczeniaPoID(idPacjenta, IdUsuwanegoElementu);
         } else if (opcja == 2) {
             System.out.println("Podaj wartość elementu do usunięcia: ");
-            String elementDoUsuniecia = SKANER.nextLine();
             SKANER.nextLine();
+            String elementDoUsuniecia = SKANER.nextLine();
             REPOZYTORIUM.usunElementZHistoriiLeczeniaPoWartosci(idPacjenta, elementDoUsuniecia);
         }
     }
