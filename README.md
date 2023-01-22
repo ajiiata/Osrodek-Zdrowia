@@ -12,7 +12,7 @@ The aim of the project is to consolidate the material discussed in the course of
 
 ## Technologies
 The project was created using:
-* Java version:
+* Java version: 8.0
 
 ## Usage
 The initial database is retrieved from the file. It can be used by both nurses and doctors but:
@@ -25,6 +25,7 @@ The initial database is retrieved from the file. It can be used by both nurses a
 > DOCTORS:
 * do not have access to the patient's address and phone
 * can modify data about treatment history and medications being taken
+* may issue prescriptions and certificates
 
 When logging in, the system asks if you are a doctor or nurse.
 
@@ -47,7 +48,7 @@ Celem projektu jest utrwalenie materiału omawianego na zajęciach z programowan
 
 ## Technologie
 Projekt został stworzony przy użyciu:
-* Java wersja:
+* Java wersja: 8.0
 
 ## Zastosowanie
 Początkowa baza danych pobierana jest z pliku. Mogą z niej korzystać zarówno pielęgniarki, jak i lekarze przy czym:
@@ -60,6 +61,7 @@ Początkowa baza danych pobierana jest z pliku. Mogą z niej korzystać zarówno
 > LEKARZE:
 * nie mają dostępu do adresu i telefonu pacjentów
 * mogą modyfikować dane dotyczące historii leczenia i przyjmowanych leków
+* mogą wystawiać recepty i zaświadczenia
 
 Przy logowaniu system pyta, czy jest się lekarzem czy pielęgniarką.
 
