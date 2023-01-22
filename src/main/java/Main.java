@@ -27,7 +27,7 @@ public class Main {
                     System.out.println("""
                             Co chcesz zrobić lekarzu? (0 - wyjść z programu, 1 - wyświetlić wszystkich pacjentów, 2 - wyszukać pacjenta,
                             3- zmodyfikować historię leczenia pacjenta, 4 - zmodyfikować przyjmowane leki pacjenta, 5 - dodać wpis do historii leczenia pacjenta, 6 - dodać pacjentowi nowy przyjmowany lek,\s
-                            7 - usunąć wpis z historii leczenia, 8 - usunąć wpis z przyjmowanych leków, 9 - zapisz zmiany)""");
+                            7 - usunąć wpis z historii leczenia, 8 - usunąć wpis z przyjmowanych leków, 9 - zapisz zmiany, 10 - wypisać receptę, 11 - wypisać zaswiadczenie lekarskie)""");
                     int operacjaDoWykonania = SKANER.nextInt();
 
                     if (operacjaDoWykonania == 0) {
@@ -43,6 +43,8 @@ public class Main {
                     else if (operacjaDoWykonania == 7) usunElementZHistoriiLeczenia();
                     else if (operacjaDoWykonania == 8) usunLek();
                     else if (operacjaDoWykonania == 9) zapiszPlik();
+                    else if (operacjaDoWykonania == 10) wypiszRecepte();
+                    else if (operacjaDoWykonania == 11) wypiszZaswiadczenieLekarskie();
                 }
 
             } else {
@@ -65,6 +67,44 @@ public class Main {
         }
 
 
+    }
+
+    private static void wypiszRecepte() {
+        System.out.println("Proszę podać imię pacjenta:");
+        String imie = SKANER.nextLine();
+
+        String nazwisko = SKANER.nextLine();
+        System.out.println("Proszę podać nazwisko pacjenta:");
+
+        String pesel = SKANER.nextLine();
+        System.out.println("Proszę podać pesel pacjenta:");
+
+        System.out.println("Proszę podać nazwę leku:");
+        String nazwaLeku = SKANER.nextLine();
+
+        System.out.println("Proszę podać dodatkowe informacje:");
+        String dodatkoweInformacje = SKANER.nextLine();
+
+        System.out.println("dziękuję");
+        Recepta r = new Recepta(imie, nazwisko, pesel, nazwaLeku, dodatkoweInformacje);
+    }
+
+    private static void wypiszZaswiadczenieLekarskie() {
+        System.out.println("Proszę podać typ zaświadczenia:");
+        String typ = SKANER.nextLine();
+        String imie = SKANER.nextLine();
+        System.out.println("Proszę podać imię pacjenta:");
+        String nazwisko = SKANER.nextLine();
+        System.out.println("Proszę podać nazwisko pacjenta:");
+        String pesel = SKANER.nextLine();
+        System.out.println("Proszę podać pesel pacjenta:");
+        String miejscowosc = SKANER.nextLine();
+        System.out.println("Proszę podać miejscowość wystawienia:");
+        String dodatkoweInformacje = SKANER.nextLine();
+        System.out.println("Proszę podać dodatkowe informacje:");
+        String dodatkoweInformacje1 = SKANER.nextLine();
+        Zaswiadczenie_Lekarskie z = new Zaswiadczenie_Lekarskie(typ, imie, nazwisko, pesel, miejscowosc, dodatkoweInformacje);
+        z.wyswietlZaswiadczenie();
     }
 
     private static void wyswietlPacjentow() {
@@ -251,7 +291,7 @@ public class Main {
         }
     }
 
-    private static void zapiszPlik(){
+    private static void zapiszPlik() {
         REPOZYTORIUM.zapiszDoPliku();
     }
 

@@ -4,7 +4,7 @@ import java.util.Random;
 public class Recepta {
     private String imiePacjenta;
     private String nazwiskoPacjenta;
-    private final long pesel;
+    private final String pesel;
     long numerRecepty;
     String lekarz;
     long kodRecepty;
@@ -13,7 +13,7 @@ public class Recepta {
     String dodatkoweInformacje;
     String podmiotWystawiajacy = "Osrodek Zdrowia HAI";
 
-    public Recepta(String imiePacjenta, String nazwiskoPacjenta, long pesel, String nazwaLeku, String dodatkoweInformacje) {
+    public Recepta(String imiePacjenta, String nazwiskoPacjenta, String pesel, String nazwaLeku, String dodatkoweInformacje) {
         this.imiePacjenta = imiePacjenta;
         this.nazwiskoPacjenta = nazwiskoPacjenta;
         this.pesel = pesel;

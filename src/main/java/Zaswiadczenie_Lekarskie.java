@@ -6,11 +6,11 @@ public class Zaswiadczenie_Lekarskie {
     private String miejscowosc;
     private String imiePacjenta;
     private String nazwiskoPacjenta;
-    private final long pesel;
+    private final String pesel;
     private String podmiotWystawiajacy = "Osrodek Zdrowia HAI";
     private String dodatkoweInformacje;
 
-    public Zaswiadczenie_Lekarskie(String typ_zaswiadczenia, String imiePacjenta, String nazwiskoPacjenta, long pesel, String miejscowosc, String dodatkoweInformacje) {
+    public Zaswiadczenie_Lekarskie(String typ_zaswiadczenia, String imiePacjenta, String nazwiskoPacjenta, String pesel, String miejscowosc, String dodatkoweInformacje) {
         this.typ_zaswiadczenia = typ_zaswiadczenia;
         this.imiePacjenta = imiePacjenta;
         this.nazwiskoPacjenta = nazwiskoPacjenta;
@@ -22,10 +22,10 @@ public class Zaswiadczenie_Lekarskie {
     }
 
     void wyswietlZaswiadczenie() {
-        System.out.println("Utworzono zaswiadczenie lekarskie: \n" + typ_zaswiadczenia +
-                "\n Podmiot wystawiający: " + podmiotWystawiajacy + "\nData: " + dataWystawienia + " Miejscowość: " + miejscowosc +
-                "\n Imię i Nazwisko: " + imiePacjenta + " " + nazwiskoPacjenta + "\nPesel: " + pesel +
-                "Informacje: " + dodatkoweInformacje);
+        System.out.println("\nUtworzono zaswiadczenie lekarskie:" + typ_zaswiadczenia +
+                "\nPodmiot wystawiający: " + podmiotWystawiajacy + "\nData: " + dataWystawienia + " Miejscowość: " + miejscowosc +
+                "\nImię i Nazwisko: " + imiePacjenta + " " + nazwiskoPacjenta + "\nPesel: " + pesel +
+                "\nInformacje: " + dodatkoweInformacje);
     }
 
 
