@@ -12,7 +12,8 @@ The aim of the project is to consolidate the material discussed in the course of
 
 ## Technologies
 The project was created using:
-* Java version: 8.0
+* Java version: 18
+* Apache Maven
 
 ## Usage
 The initial database is retrieved from the file. It can be used by both nurses and doctors but:
@@ -48,7 +49,8 @@ Celem projektu jest utrwalenie materiału omawianego na zajęciach z programowan
 
 ## Technologie
 Projekt został stworzony przy użyciu:
-* Java wersja: 8.0
+* Java wersja: 18
+* Apache Maven
 
 ## Zastosowanie
 Początkowa baza danych pobierana jest z pliku. Mogą z niej korzystać zarówno pielęgniarki, jak i lekarze przy czym:
